@@ -1,0 +1,41 @@
+version: 2
+
+multi-ecosystem-groups:
+  all-dependencies:
+    schedule:
+      interval: "weekly"
+
+updates:
+  - package-ecosystem: "swift"
+    directory: "/"
+    patterns:
+      - "*"
+    multi-ecosystem-group: "all-dependencies"
+    groups:
+      all-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+  - package-ecosystem: "cocoapods"
+    directories:
+      - "/Examples/Example-iOS_ObjC"
+      - "/Examples/Example-macOS"
+      - "/Examples/Example-tvOS"
+    patterns:
+      - "*"
+    multi-ecosystem-group: "all-dependencies"
+    groups:
+      all-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    patterns:
+      - "*"
+    multi-ecosystem-group: "all-dependencies"
+    groups:
+      all-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
